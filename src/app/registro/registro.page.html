@@ -13,7 +13,7 @@
       <ion-card-title>Usuario</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form [FormGroup]="formularioLogin">
+      <form [FormGroup]="formularioRegistro">
         <ion-item>
       <ion-label Position="floating">Nombre</ion-label>
       <ion-input FormControlName="nombre"></ion-input>
@@ -28,7 +28,7 @@
           </ion-item>
       </form>
       <br>
-    <ion-button (click)="ingresar()" color="secondary">Registrar</ion-button>
+    <ion-button (click)="guardar()" color="secondary">Registrar</ion-button>
   
       
     </ion-card-content>
