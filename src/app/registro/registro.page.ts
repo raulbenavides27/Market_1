@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -10,31 +15,39 @@ import { AlertController } from '@ionic/angular';
 export class RegistroPage implements OnInit {
 
   formularioRegistro: FormGroup;
-
+  
   constructor(public fb: FormBuilder,
     public alertController: AlertController) {
     this.formularioRegistro = this.fb.group({
-      'nombre': new FormControl("",Validators.required),
-      'contraseña': new FormControl("",Validators.required),
-      'confirmacion': new FormControl("",Validators.required)
+      'nombre': new FormControl("", Validators.required),
+      'pass': new FormControl("", Validators.required),
+      'confirmacion': new FormControl("", Validators.required)
     });
-   }
+  }
 
   ngOnInit() {
   }
-async guardar(){
-  var f =this.formularioRegistro.value;
 
-  if(this.formularioRegistro.invalid){
-    const alert = await this.alertController.create({
-      header:'Formulario incompleto',
-      message: 'Complete los datos',
-      buttons: ['OK'],
-    });
+  async guardar(){
+    var f = this.formularioRegistro.value;
 
-    await alert.present();
-    return;
-  }
-}
+    if(this.formularioRegistro.invalid){
+      const alert = await this.alertController.create({
+        header: 'Datos incompletos',
+        message: 'Tienes que llenar todos los datos',
+        buttons: ['Aceptar']
+      });
   
+      await alert.present();
+      return;
+    }
+
+    var usuario = {
+      nombre: f.nombre,
+      password: f.pass
+    }
+
+    localStorage.setItem('usuario',JSON.stringify(usuario));
+  }
+
 }
