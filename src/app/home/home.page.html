@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
       ListMarket
@@ -20,9 +20,10 @@
 
   <div id="container">
     <ion-list>
-      <div><ion-button [routerLink]="'./crearlista'" color="secondary">Crear lista </ion-button></div>
-      <div><ion-button [routerLink]="'./pendiete'" color="secondary">Pendiente</ion-button></div>
-      <div><ion-button [routerLink]="'./favorito'" color="secondary">Favorito</ion-button></div>
+      <div><ion-button expand="block" [routerLink]="'../notas'" color="secondary">Notas</ion-button></div>
+      <div><ion-button expand="block" [routerLink]="'../crearlista'" color="secondary">Crear lista </ion-button></div>
+      <div><ion-button expand="block" [routerLink]="'../pendientes'" color="secondary">Pendiente   </ion-button></div>
+      <div><ion-button expand="block" [routerLink]="'../favorito'"   color="secondary">Favorito    </ion-button></div>
     </ion-list>
   </div>
 </ion-content>
