@@ -19,15 +19,23 @@
   <br>
   <div id="container">
     <ion-card-title>Crear lista </ion-card-title>
+
     <ion-list>
+      <ion-accordion-group #accordionGroup>
+        <ion-accordion value="first">
       <ion-item *ngFor="let p of productos">
         <ion-thumbnail slot="start">
           <ion-img [src]="p.imageURL"></ion-img>
         </ion-thumbnail>
         <ion-label >
           {{p.title}}
+          <ion-item>
+            <ion-checkbox slot="end"></ion-checkbox>
+            <ion-label>Themed checkbox</ion-label>
+          </ion-item>
         </ion-label>
       </ion-item>
+    </ion-accordion>
     </ion-list>
   </div>
 </ion-content>
