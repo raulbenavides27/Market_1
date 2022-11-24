@@ -17,15 +17,16 @@ export class MenuPage implements OnInit {
       icono: 'home'
     },
     {
+      titulo: 'Crear lista',
+      url: '/menu/crearlista',
+      icono: 'book'
+    },
+    {
       titulo: 'notas',
       url: '/menu/notas',
       icono: 'book'
     },
-    {
-      titulo: 'Crear lista',
-      url: '/menu/crearlista',
-      icono: 'book'
-    }
+  
   ]
 
   constructor(public alertController: AlertController,
