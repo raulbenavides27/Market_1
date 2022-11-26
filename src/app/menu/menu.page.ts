@@ -19,7 +19,8 @@ export class MenuPage implements OnInit {
     {
       titulo: 'Crear lista',
       url: '/menu/crearlista',
-      icono: 'book'
+      icono: 'receipt'
+      
     },
     {
       titulo: 'notas',
@@ -42,15 +43,15 @@ export class MenuPage implements OnInit {
   async salir(){
     const alert = await this.alertController.create({
       header: 'Salir',
-      message: '¿Deberitas te quieres salir?',
+      message: '¿Confirmar para salir?',
       buttons: [
         {
-          text: 'No mejor no',
+          text: 'Cancelar',
           handler: () => {
             
           }
         }, {
-          text: 'Sii',
+          text: 'Aceptar',
           handler: () => {
             localStorage.removeItem('ingresado');
             this.navCtrl.navigateRoot('login');

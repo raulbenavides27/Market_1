@@ -20,16 +20,11 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
     canActivate: [NoIngresadoGuard]
   },
- 
-  
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule),
     canActivate: [IngresadoGuard]
-  }
-
-
-];
+  }];
 
 @NgModule({
   imports: [

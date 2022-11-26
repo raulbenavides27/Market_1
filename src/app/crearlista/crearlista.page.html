@@ -3,25 +3,42 @@
         <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>ListMarket</ion-title>
+        <ion-title>Crear lista</ion-title>
     </ion-toolbar>
   </ion-header>
 
 <ion-content [fullscreen]="true">
-  <br>
- <ion-title > Crear lista</ion-title>
-       <ion-list>
-           <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
+       <ion-list [inset]="true" lines="none" >
+           <ion-accordion-group [multiple]="true" [value]="['first', 'third']" lines="none">
             <ion-accordion *ngFor="let p of productos" >
-              <ion-item  slot="header" color="light">
+              <ion-item  slot="header" color="tertiary">
                 <ion-thumbnail slot="start">
                   <ion-img [src]="p.imageURL"></ion-img>
                   </ion-thumbnail>
                 <ion-label>{{p.title}}</ion-label>
               </ion-item>
-              <div class="ion-padding" slot="content">primer producto</div>
-              <div class="ion-padding" slot="content">segundo producto</div>
-              <div class="ion-padding" slot="content">tercer producto</div>
+
+              <div class="ion-padding" slot="content">
+                <ion-item > 
+                  <ion-checkbox slot="end"></ion-checkbox>
+                  <ion-label>primer producto</ion-label>
+                </ion-item>
+              </div>
+
+              <div class="ion-padding" slot="content">
+                <ion-item>
+                <ion-checkbox slot="end"></ion-checkbox>
+                <ion-label>segundo producto</ion-label>
+              </ion-item>
+             </div>
+
+              <div class="ion-padding" slot="content">
+                <ion-item>
+                <ion-checkbox slot="end"></ion-checkbox>
+                <ion-label>tercer producto</ion-label>
+              </ion-item>
+            </div>
+
             </ion-accordion>
         
             

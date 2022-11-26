@@ -5,6 +5,7 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -41,6 +42,7 @@ export class RegistroPage implements OnInit {
       await alert.present();
       return;
     }
+    if(f.pass==f.confirmacion){
 
     var usuario = {
       nombre: f.nombre,
@@ -48,6 +50,29 @@ export class RegistroPage implements OnInit {
     }
 
     localStorage.setItem('usuario',JSON.stringify(usuario));
-  }
+    const alert = await this.alertController.create({
+      header: 'Bienvenido',
+      message: 'Registro exitoso',
+      buttons: ['Aceptar']
+      
+      
+    });
+    await alert.present();
+        return;
+        
+  }else{
+  const alert = await this.alertController.create({
+    header: 'Error,No Registrado',
+    message: 'tu contraseña no coinside reintenta por favor',
+    buttons: ['Aceptar'],
+   
+    
+  });
+  await alert.present();
+      return;
+    
 
+}
+
+}
 }
