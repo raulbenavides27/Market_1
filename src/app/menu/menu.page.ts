@@ -24,7 +24,7 @@ export class MenuPage implements OnInit {
     },
     {
       titulo: 'notas',
-      url: '/menu/notas',
+      url: '/menu/mnotas',
       icono: 'book'
     },
   

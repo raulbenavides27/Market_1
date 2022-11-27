@@ -24,7 +24,13 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule),
     canActivate: [IngresadoGuard]
-  }];
+  },
+  {
+    path: 'detalle-notas',
+    loadChildren: () => import('./detalle-notas/detalle-notas.module').then( m => m.DetalleNotasPageModule)
+  }
+] 
+;
 
 @NgModule({
   imports: [

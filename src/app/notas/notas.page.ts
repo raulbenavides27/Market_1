@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController,NavController } from '@ionic/angular';
 import * as moment from 'moment';
 
 @Component({
@@ -11,56 +11,58 @@ export class NotasPage implements OnInit {
   
   fecha: string;
    
-  entradas: Array<{
+  notas: Array<{
     fecha: string,
     fechaTexto:string,
     texto: string
   }>
 
-  entradaActual:{
+  notaActual:{
     fecha: string,
     fechaTexto:string,
     texto: string
   };
-  constructor(public toastController: ToastController) {
+  constructor(
+    public toastController: ToastController,
+    public navCtrol:NavController) {
   moment.locale('es-cl');
   this.fecha = moment().format();
-  this.cargarEntradas();
+  this.cargarNotas();
 } 
 ngOnInit() {
 }
 
-cargarEntradas(){
+cargarNotas(){
   var fecha = moment(this.fecha).format('DD-MM-YY');
 
-  this.entradas = JSON.parse(localStorage.getItem('entradas'));
-  if(this.entradas){
-    var entradaActual = this.entradas.find((elemento)=>{
+  this.notas = JSON.parse(localStorage.getItem('notas'));
+  if(this.notas){
+    var notaActual = this.notas.find((elemento)=>{
       return elemento.fecha == fecha;
     });
-    if (entradaActual){
-      this.entradaActual = entradaActual;
+    if (notaActual){
+      this.notaActual = notaActual;
     }else{
-      this.inicializarNuevaEntrada();
+      this.inicializarNuevaNota();
     }
   }else{
-      this.inicializarNuevaEntrada();
+      this.inicializarNuevaNota();
     }
 }
-inicializarNuevaEntrada(){
+inicializarNuevaNota(){
   var fecha =moment(this.fecha).format('DD-MM-YY');
   var dia =moment(this.fecha).format('DD');
   var mes =moment(this.fecha).format('MMMM');
   var year =moment(this.fecha).format('YYYY');
 
-  this.entradaActual = {
+  this.notaActual = {
     fechaTexto: dia + ' de ' + mes + ' del ' + year,
     fecha:fecha,
     texto: ''
   }
 }
 
-async guardar(entradaActual: {
+async guardar(notaActual:{
     fecha: string,
     fechaTexto:string,
     texto: string
@@ -68,30 +70,35 @@ async guardar(entradaActual: {
 
   var fecha = moment(this.fecha).format('DD-MM-YY');
 
-  if(this.entradas){
-    var item = this.entradas.find((elemento)=>{
+  if(this.notas){
+    var item = this.notas.find((elemento)=>{
       return elemento.fecha == fecha;
     });
     if(item){
-      localStorage.setItem('entradas',JSON.stringify(this.entradas));
+      localStorage.setItem('notas',JSON.stringify(this.notas));
   }else{  
-      this.guardarItem(entradaActual);
+      this.guardarItem(notaActual);
   }
     }else{
-      this.entradas = [];
-      this.guardarItem(entradaActual);
+      this.notas = [];
+      this.guardarItem(notaActual);
   }
-
+  
   const toast = await this.toastController.create({
+    
     message:'Datos guardados',
     duration: 2000
   });
+  
   toast.present();
   }
     
-      guardarItem(entrada:{fecha: string,fechaTexto: string,texto: string }){
-      this.entradas.push(entrada);
-    localStorage.setItem('entradas',JSON.stringify(this.entradas));
+      guardarItem(nota:{fecha: string,fechaTexto: string,texto: string }){
+      this.notas.push(nota);
+    localStorage.setItem('notas',JSON.stringify(this.notas));
+    
+
   }
+  
 
 }

@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { CardNotasComponent } from './card-notas/card-notas.component';
 
-import { MnotasPageRoutingModule } from './mnotas-routing.module';
-
-import { MnotasPage } from './mnotas.page';
 
 
 @NgModule({
+  declarations: [CardNotasComponent],
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
-    MnotasPageRoutingModule
+    IonicModule
+
   ],
-  declarations: [MnotasPage]
+  exports:[CardNotasComponent]
 })
-export class MnotasPageModule {}
+export class ModuloComponenteModule { }

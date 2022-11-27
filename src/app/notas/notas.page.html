@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>
       Notas
@@ -9,13 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-       <ion-card *ngIf="entradaActual">
-          <ion-card-content >
-                     <p id=fechaTexto>{{entradaActual.fechaTexto}}</p>
-                     <ion-textarea rows="13" [(ngModel)]="entradaActual.texto">
-                     </ion-textarea>
-          </ion-card-content>
-          <ion-button color="secondary" expand="block" (click)="guardar(entradaActual)">Guardar</ion-button>
-       </ion-card>
+<ion-content >
+      <app-card-notas [nota]="notaActual"(eventoGuardar)="guardar($event)"></app-card-notas>
+     
 </ion-content>

@@ -31,7 +31,7 @@ const routes: Routes = [
     path: 'mnotas',
     loadChildren: () => import('../mnotas/mnotas.module').then( m => m.MnotasPageModule)
   }
-]
+    ]
  }
 ];
 

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotasPageRoutingModule } from './notas-routing.module';
+import { DetalleNotasPageRoutingModule } from './detalle-notas-routing.module';
 
-import { NotasPage } from './notas.page';
+import { DetalleNotasPage } from './detalle-notas.page';
 import { ModuloComponenteModule } from '../componentes/modulo-componente.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ModuloComponenteModule } from '../componentes/modulo-componente.module'
     CommonModule,
     FormsModule,
     IonicModule,
-    NotasPageRoutingModule,
+    DetalleNotasPageRoutingModule,
     ModuloComponenteModule
   ],
-  declarations: [NotasPage]
+  declarations: [DetalleNotasPage]
 })
-export class NotasPageModule {}
+export class DetalleNotasPageModule {}
