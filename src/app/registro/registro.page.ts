@@ -50,9 +50,7 @@ export class RegistroPage implements OnInit {
       password: f.pass
     }
 
-    localStorage.setItem('usuario',JSON.stringify(usuario));
-    localStorage.setItem('ingresado','true');
-    this.navCtrol.navigateRoot('menu/home');
+   
     
     const alert = await this.alertController.create({
       header: 'Bienvenido',
@@ -61,6 +59,7 @@ export class RegistroPage implements OnInit {
       
       
     });
+    //tenia la intencio de redirecionar al login pero no funciona porque pasa directo al home
     this.navCtrol.navigateRoot('login');
     await alert.present();
         return;
@@ -78,6 +77,10 @@ export class RegistroPage implements OnInit {
     
 
 }
+
+localStorage.setItem('usuario',JSON.stringify(usuario));
+localStorage.setItem('ingresado','true');
+this.navCtrol.navigateRoot('menu/home');
 
 }
 }

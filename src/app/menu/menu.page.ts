@@ -12,7 +12,7 @@ export class MenuPage implements OnInit {
 
   paginas = [
     {
-      titulo: 'home',
+      titulo: 'Home',
       url: '/menu/home',
       icono: 'home'
     },
@@ -23,10 +23,20 @@ export class MenuPage implements OnInit {
       
     },
     {
-      titulo: 'notas',
+      titulo: 'Notas',
       url: '/menu/mnotas',
       icono: 'book'
     },
+    {
+      titulo: 'Pendientes',
+      url: '/menu/pendientes',
+      icono: 'book'
+    },
+    {
+      titulo: 'Favoritos',
+      url: '/menu/favorito',
+      icono: 'book'
+    }
   
   ]
 

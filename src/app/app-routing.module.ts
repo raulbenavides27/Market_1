@@ -12,6 +12,28 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'registro',
+    redirectTo: 'registro',
+    pathMatch: 'full'
+  },
+  {
+    path: 'detalle-notas',
+    redirectTo: 'detalle-notas',
+    pathMatch: 'full'
+  },
+  
+  {
+    path: 'menu',
+    redirectTo: 'menu',
+    pathMatch: 'full'
+  },
+
+  {
+    path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
     canActivate: [NoIngresadoGuard]
   },
@@ -28,7 +50,9 @@ const routes: Routes = [
   {
     path: 'detalle-notas',
     loadChildren: () => import('./detalle-notas/detalle-notas.module').then( m => m.DetalleNotasPageModule)
-  }
+  },
+ 
+
 ] 
 ;
 
