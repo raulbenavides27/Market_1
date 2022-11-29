@@ -59,10 +59,14 @@ export class RegistroPage implements OnInit {
       
       
     });
+    localStorage.setItem('usuario',JSON.stringify(usuario));
+  //  localStorage.setItem('ingresado','true');
+    this.navCtrol.navigateRoot('menu/home');
     //tenia la intencio de redirecionar al login pero no funciona porque pasa directo al home
     this.navCtrol.navigateRoot('login');
     await alert.present();
         return;
+        
         
   }else{
   const alert = await this.alertController.create({
@@ -72,15 +76,15 @@ export class RegistroPage implements OnInit {
    
     
   });
+
+
   await alert.present();
       return;
     
 
 }
 
-localStorage.setItem('usuario',JSON.stringify(usuario));
-localStorage.setItem('ingresado','true');
-this.navCtrol.navigateRoot('menu/home');
+
 
 }
 }
