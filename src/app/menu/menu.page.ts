@@ -28,7 +28,7 @@ export class MenuPage implements OnInit {
       icono: 'book'
     },
     {
-      titulo: 'Pendientes',
+      titulo: 'Ejemplo API',
       url: '/menu/pendientes',
       icono: 'book'
     },
