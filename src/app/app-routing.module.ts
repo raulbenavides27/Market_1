@@ -50,7 +50,15 @@ const routes: Routes = [
   {
     path: 'detalle-notas',
     loadChildren: () => import('./detalle-notas/detalle-notas.module').then( m => m.DetalleNotasPageModule)
+  },  {
+    path: 'agregar',
+    loadChildren: () => import('./agregar/agregar.module').then( m => m.AgregarPageModule)
   },
+  {
+    path: 'editar',
+    loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
+  },
+
  
 
 ] 

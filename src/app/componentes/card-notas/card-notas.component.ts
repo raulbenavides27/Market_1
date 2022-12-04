@@ -32,5 +32,6 @@ export class CardNotasComponent implements OnInit {
 
   guardar(){
     this.eventoGuardar.emit(this.nota);
+    
   }
 }
