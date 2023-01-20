@@ -15,28 +15,4 @@ export class HomePage {
   constructor() { }
 
 
-  //-----------------------API GOOGLE MAPS----------------------------------//
-  ionViewDidEnter(){
-    this.showMap();
-  }
-
-  showMap(){
-    const location = new google.maps.LatLng(-33.36355749279399, -70.67821198064264);
-    const options = {
-      center: location,
-      zoom: 15,
-      disableDefaultUI: true
-    }
-    this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-  } //-----------------------API GOOGLE MAPS----------------------------------//
-  
-
-
- getPlace(){}
- 
- addPlace(){}
- 
- deletePlace(){}
-
-
 }
